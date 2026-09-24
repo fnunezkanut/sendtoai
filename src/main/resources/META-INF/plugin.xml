@@ -1,0 +1,25 @@
+<idea-plugin>
+    <id>com.github.fnunezkanut.sendtoai</id>
+    <name>Send to AI Prompt</name>
+    <vendor>fnunezkanut</vendor>
+    <description><![CDATA[
+        Adds a <b>Send to AI Prompt</b> item to the editor context menu. It appends the selected text,
+        wrapped in a Markdown code fence, to the JetBrains AI Assistant chat input.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.ml.llm</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="Send to AI Prompt" displayType="BALLOON"/>
+    </extensions>
+
+    <actions>
+        <action id="SendToAi.SendSelection"
+                class="com.github.fnunezkanut.sendtoai.SendToAiPromptAction"
+                text="Send to AI Prompt"
+                description="Append the selected text to the AI Assistant chat input">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
